@@ -1,4 +1,5 @@
-const { test, expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test";
+import { faker } from "@faker-js/faker";
 
 test("rechercher un produit dans le moteur de recherche puis l’acheter", async ({
   page,
