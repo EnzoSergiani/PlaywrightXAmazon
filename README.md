@@ -24,7 +24,7 @@ npx playwright test –trace on
 
 ## Test
 
-- n°1 : ...
+- n°1 : création de compte et connexion
 - n°2 : rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer
 - n°3 : rechercher un produit, ajouter les produits fréquemment achetés ensemble au panier
 - n°4 : ...
