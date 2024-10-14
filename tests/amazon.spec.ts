@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { test, expect } = require("@playwright/test");
 
 // test("<description_du_test>", async ({ page }) => {
@@ -61,3 +62,5 @@ test.describe("Amazon Payment Testing", () => {
     await page.click("#sc-buy-box-ptc-button"); //passer à la caisse
   });
 });
+=======
+>>>>>>> main
