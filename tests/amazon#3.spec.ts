@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { USER } from "./generatedConst";
 
 test.describe("Acheter les produits fréquemment achetés ensemble", () => {
   test("Acheter les produits fréquemment achetés ensemble", async ({ page }) => {
@@ -13,5 +14,9 @@ test.describe("Acheter les produits fréquemment achetés ensemble", () => {
     await page.click("#AddToCartLibrary-AddToCartButton-Personalization"); // on ajoute les produits fréquemment achetés ensemble au panier
     await page.click("#nav-cart"); // on accède au panier
     await page.click("#sc-buy-box-ptc-button"); // on passe la commande
+    await page.fill("#ap_email", USER.EMAIL); // on entre l'email
+    await page.click("#continue"); // on clique sur continuer
+    await page.fill("#ap_password", USER.PASSWORD); // on entre le mot de passe
+    await page.click("#auth-signin-button"); // on clique sur s'identifier
   });
 });
