@@ -21,3 +21,10 @@ npx playwright test
 npx playwright test –ui
 npx playwright test –trace on
 ```
+
+## Auteurs
+
+- Thibaut LEMICHEL
+- Antoine RICHARD
+- Enzo SERGIANI
+- Adam VIDAL
