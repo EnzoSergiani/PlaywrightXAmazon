@@ -9,5 +9,5 @@ export const NEW_USER = {
 export const USER = {
     NAME: "David Loutre",
     EMAIL: "davidloutre11@gmail.com",
-    PASSWORD: "david123456"
+    PASSWORD: "loutre123456"
 }
