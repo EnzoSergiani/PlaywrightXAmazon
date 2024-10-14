@@ -22,6 +22,32 @@ npx playwright test –ui
 npx playwright test –trace on
 ```
 
+## Consignes
+
+- [ ] Me donner la liste de vos tests rédiger en Gherkin dans un fichier (au moins 10)
+  - [ ] création de compte,
+  - [ ] login,
+  - [ ] logout,
+  - [ ] création de compte avec un email existant,
+  - [ ] vérifier le contenu de la page d’accueil,
+  - [ ] rechercher un produit dans le moteur de recherche puis l’acheter,
+  - [ ] rechercher un produit par une catégorie de produit, Mettre un produit dans le panier,
+  - [ ] vérifier les quantités de produit dans le panier,
+  - [ ] passer une commande avec une création de compte pendant le checkout,
+  - [ ] passer une commande avec un login pendant le checkout,
+  - [ ] supprimer produit du panier, Sur une catégorie vérifier les filtres et différentes catégories,
+  - [ ] Acheter les “Produits fréquemment achetés ensemble”,
+  - [ ] vérifier les adresses de livraison
+- [ ] utiliser des POMs
+  - [ ] fiche produit,
+  - [ ] page de catégorie,
+  - [ ] Home page,
+  - [ ] page de création de compte,
+  - [ ] page checkout,
+- [ ] une fixture,
+- [ ] les scripts des tests avec l’ID correspondant au fichier Gherkin,
+- [ ] ils doivent être exécutable plusieurs fois
+
 ## Auteurs
 
 - Thibaut LEMICHEL
