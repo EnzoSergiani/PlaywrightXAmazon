@@ -9,7 +9,7 @@ const { test, expect } = require("@playwright/test");
 
 test.describe("Amazon Feature Testing", () => {
   test("access to the page", async ({ page }) => {
-    await page.goto("https://www.amazon.com/");
+    await page.goto("https://www.amazon.fr/");
   });
 });
 
