@@ -14,6 +14,8 @@ export class homePageAction {
   readonly buttonContinue: Locator;
   readonly buttonSignInSubmit: Locator;
   readonly commandButton: Locator;
+  readonly buttonDeliveryAddress: Locator;
+  readonly buttonLoginDeliveryAddress: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -27,6 +29,10 @@ export class homePageAction {
     this.buttonContinue = page.locator("#continue");
     this.buttonSignInSubmit = page.locator("#signInSubmit");
     this.commandButton = page.locator("#sc-buy-box-ptc-button");
+    this.buttonDeliveryAddress = page.locator(
+      "#nav-global-location-popover-link"
+    );
+    this.buttonLoginDeliveryAddress = page.locator("#GLUXSignInButton");
   }
 
   async navigateToHomePage() {
@@ -65,6 +71,21 @@ export class homePageAction {
 
   async command() {
     await this.commandButton.click();
+    await this.login();
+  }
+
+  async goToDeliveryAddress() {
+    function delay(milliseconds) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, milliseconds);
+      });
+    }
+
+    await this.buttonDeliveryAddress.click();
+  }
+
+  async loginDeliveryAddress() {
+    await this.buttonLoginDeliveryAddress.click();
     await this.login();
   }
 }
