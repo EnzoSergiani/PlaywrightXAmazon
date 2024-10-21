@@ -27,7 +27,7 @@ npx playwright test –trace on
 - n°1 : création de compte et connexion
 - n°2 : rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer
 - n°3 : rechercher un produit, ajouter les produits fréquemment achetés ensemble au panier
-- n°4 : ...
+- n°4 : vérifier les adresses de livraison
 - n°5 : ...
 - n°6 : rechercher un produit dans le moteur de recherche puis l’acheter,
 - n°7 : ...
@@ -40,7 +40,7 @@ npx playwright test –trace on
 - [ ] Me donner la liste de vos tests rédiger en Gherkin dans un fichier (au moins 10)
   - [x] création de compte,
   - [x] login,
-  - [x] logout,
+  - [ ] logout,
   - [ ] création de compte avec un email existant,
   - [ ] vérifier le contenu de la page d’accueil,
   - [x] rechercher un produit dans le moteur de recherche puis l’acheter,
@@ -53,11 +53,11 @@ npx playwright test –trace on
   - [ ] Acheter les “Produits fréquemment achetés ensemble”,
   - [ ] vérifier les adresses de livraison
 - [ ] utiliser des POMs
-  - [ ] fiche produit,
-  - [ ] page de catégorie,
-  - [ ] Home page,
-  - [ ] page de création de compte,
-  - [ ] page checkout,
+  - [x] fiche produit,
+  - [x] page de catégorie,
+  - [x] Home page,
+  - [x] page de création de compte,
+  - [x] page checkout,
 - [ ] une fixture,
 - [ ] les scripts des tests avec l’ID correspondant au fichier Gherkin,
 - [ ] ils doivent être exécutable plusieurs fois
