@@ -1,9 +1,9 @@
-import {faker} from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 
-export const NEW_USER = { 
-    NAME: faker.person.fullName(), 
-    EMAIL: faker.internet.email(), 
-    PASSWORD: faker.internet.password() 
+export const NEW_USER = {
+  NAME: faker.person.fullName(),
+  EMAIL: faker.internet.email(),
+  PASSWORD: faker.internet.password(),
 };
 
 export const USER = {

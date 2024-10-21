@@ -1,5 +1,5 @@
-import {test, expect} from "@playwright/test";
-import {de, faker} from "@faker-js/faker";
+import { test, expect } from "@playwright/test";
+import {faker} from "@faker-js/faker";
 import { NEW_USER, USER } from "./generatedConst";
 
 test.describe("Create a new user", () => {
@@ -42,4 +42,22 @@ test.describe("Login User", () => {
         await page.click("#signInSubmit");
 
     });
+});
+
+test.describe("log out", () => {
+  test("access to the page", async ({ page }) => {
+    await page.goto("https://www.amazon.fr/");
+  });
+  test("access to the login page", async ({ page }) => {
+    await page.goto("https://www.amazon.fr");
+    await page.click("#nav-link-accountList");
+    await page.fill("#ap_email", USER.EMAIL);
+    await page.click("#continue");
+    await page.fill("#ap_password", USER.PASSWORD);
+    await page.click("#signInSubmit");
+  });
+  test("log out", async ({ page }) => {
+    await page.click("#nav-link-accountList");
+    await page.click("#nav-item-signout");
+  });
 });
