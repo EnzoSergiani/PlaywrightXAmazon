@@ -10,17 +10,19 @@ export class ProductAction {
   readonly deleteProduct: Locator;
   readonly firstProduct: Locator;
   readonly firstFrequentProduct: Locator;
+  readonly addToCartButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.searchBar = page.locator("#twotabsearchtextbox");
     this.buttonSearch = page.locator("#nav-search-submit-button");
     this.goToCart = page.locator("#nav-cart");
-    this.deleteProduct = page.locator(".sc-action-delete");
+    this.deleteProduct = page.locator('input[data-action="delete"]');
     this.firstProduct = page.locator(".s-main-slot .s-result-item").first();
     this.firstFrequentProduct = page
       .locator("#AddToCartLibrary-AddToCartButton-Personalization")
       .first();
+    this.addToCartButton = page.locator("#add-to-cart-button");
   }
 
   async searchProduct(product: string) {
