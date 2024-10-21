@@ -38,14 +38,14 @@ npx playwright test –trace on
 ## Consignes
 
 - [ ] Me donner la liste de vos tests rédiger en Gherkin dans un fichier (au moins 10)
-  - [X] création de compte,
-  - [X] login,
-  - [ ] logout,
+  - [x] création de compte,
+  - [x] login,
+  - [x] logout,
   - [ ] création de compte avec un email existant,
   - [ ] vérifier le contenu de la page d’accueil,
-  - [X] rechercher un produit dans le moteur de recherche puis l’acheter,
-  - [X] rechercher un produit par une catégorie de produit, 
-  - [X] mettre un produit dans le panier,
+  - [x] rechercher un produit dans le moteur de recherche puis l’acheter,
+  - [x] rechercher un produit par une catégorie de produit,
+  - [x] mettre un produit dans le panier,
   - [ ] vérifier les quantités de produit dans le panier,
   - [ ] passer une commande avec une création de compte pendant le checkout,
   - [ ] passer une commande avec un login pendant le checkout,
