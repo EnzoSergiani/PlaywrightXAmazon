@@ -12,6 +12,7 @@ export class ProductAction {
   readonly firstFrequentProduct: Locator;
   readonly addToCartButton: Locator;
   readonly buyButton: Locator;
+  readonly proceedToRetailCheckoutButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -25,6 +26,7 @@ export class ProductAction {
       .first();
     this.addToCartButton = page.locator("#add-to-cart-button");
     this.buyButton = page.locator("#buy-now-button");
+    this.proceedToRetailCheckoutButton = page.locator('input[name="proceedToRetailCheckout"]');
   }
 
   async searchProduct(product: string) {
@@ -58,5 +60,9 @@ export class ProductAction {
 
   async buyProduct() {
     await this.buyButton.click();
+  }
+
+  async proceedToRetailCheckout() {
+    await this.proceedToRetailCheckoutButton.click();
   }
 }

@@ -7,6 +7,7 @@ import { accountAction } from "./page_creation_compte";
 const test = base.extend<{
   homePageAction: homePageAction;
   productAction: ProductAction;
+  categoryPageAction: CategoryPageAction;
   accountAction: accountAction;
 }>({
   homePageAction: async ({ page }, use) => {
