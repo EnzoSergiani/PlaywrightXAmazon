@@ -1,8 +1,12 @@
-import { test, expect } from '@playwright/test';
+// import { test, expect } from '@playwright/test';
+import { test } from "./poms/fixture";
 import { USER } from "./generatedConst";
 
+/*
 test.describe("Acheter les produits fréquemment achetés ensemble", () => {
-  test("Acheter les produits fréquemment achetés ensemble", async ({ page }) => {
+  test("Acheter les produits fréquemment achetés ensemble", async ({
+    page,
+  }) => {
     await page.goto("https://www.amazon.fr"); // on va sur amazon.fr
     await page.click("#sp-cc-rejectall-link"); // on refuse les cookies
     await page.fill("input[name='field-keywords']", "laptop"); // on recherche un article
@@ -18,5 +22,21 @@ test.describe("Acheter les produits fréquemment achetés ensemble", () => {
     await page.click("#continue"); // on clique sur continuer
     await page.fill("#ap_password", USER.PASSWORD); // on entre le mot de passe
     await page.click("#auth-signin-button"); // on clique sur s'identifier
+  });
+});
+*/
+
+test.describe("Acheter les produits fréquemment achetés ensemble", () => {
+  test("Acheter les produits fréquemment achetés ensemble", async ({
+    homePageAction,
+    productAction,
+  }) => {
+    await homePageAction.navigateToHomePage();
+    await homePageAction.dislikeCookies();
+    await productAction.searchProduct("laptop");
+    await productAction.clickOnFirstProduct();
+    await productAction.addFrequentProductToCart();
+    await productAction.goToCartPage();
+    await homePageAction.command();
   });
 });
