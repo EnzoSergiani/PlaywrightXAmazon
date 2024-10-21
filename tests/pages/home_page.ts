@@ -34,4 +34,12 @@ export class HomePage {
   async noCookies() {
     await this.page.click("#sp-cc-rejectall-link");
   }
+
+  async clickShippingAdresses() {
+    await this.page.click("#nav-global-location-popover-link");
+  }
+
+  async shippingAdressesSignIn() {
+    await this.page.click("#GLUXSignInButton");
+  }
 }
