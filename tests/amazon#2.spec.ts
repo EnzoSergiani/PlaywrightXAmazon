@@ -12,9 +12,6 @@ test.describe("Rechercher un produit, le mettre dans le panier, voir le panier p
     await firstProduct.click(); // on clique sur le premier article trouvé
     await page.click("#add-to-cart-button"); // ajouter le produit au panier
     await page.click("#nav-cart"); // on clique sur le panier
-    const deleteFromCart = await page
-      .locator(".sc-action-delete")
-      .first();
-    await deleteFromCart.click(); // on supprime l'article du panier
+    await page.click('input[data-action="delete"]'); // on supprime l'article du panier
   })
 });
