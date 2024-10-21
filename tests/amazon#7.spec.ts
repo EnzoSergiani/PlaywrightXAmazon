@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { USER, NEW_USER } from "./generatedConst";
+import { NEW_USER } from "./generatedConst";
 
 test.describe("Passer une commande avec un register pendant le checkout", () => {
   test("Passer une commande avec un register pendant le checkout", async ({ page }) => {
