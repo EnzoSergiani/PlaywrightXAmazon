@@ -16,6 +16,8 @@ export class homePageAction {
   readonly commandButton: Locator;
   readonly buttonDeliveryAddress: Locator;
   readonly buttonLoginDeliveryAddress: Locator;
+  readonly hoverLogin: Locator;
+  readonly buttonLogOut: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -26,13 +28,15 @@ export class homePageAction {
     this.inputCustomer = page.locator("#ap_customer_name");
     this.inputPassword = page.locator("#ap_password");
     this.inputPasswordCheck = page.locator("#ap_password_check");
-    this.buttonContinue = page.locator("#continue");
+    this.buttonContinue = page.locator("#continue").first();
     this.buttonSignInSubmit = page.locator("#signInSubmit");
     this.commandButton = page.locator("#sc-buy-box-ptc-button");
     this.buttonDeliveryAddress = page.locator(
       "#nav-global-location-popover-link"
     );
     this.buttonLoginDeliveryAddress = page.locator("#GLUXSignInButton");
+    this.hoverLogin = page.locator("#nav-link-accountList");
+    this.buttonLogOut = page.locator("#nav-item-signout");
   }
 
   async navigateToHomePage() {
@@ -66,10 +70,20 @@ export class homePageAction {
     await this.inputEmail.fill(USER.EMAIL);
     await this.buttonContinue.click();
     await this.inputPassword.fill(USER.PASSWORD);
-    await this.buttonSignInSubmit.click;
+    await this.buttonSignInSubmit.click();
+  }
+
+  async accessLogOut() {
+    await this.hoverLogin.hover();
+    await this.logOut();
+  }
+
+  async logOut() {
+    await this.buttonLogOut.click();
   }
 
   async command() {
+    await this.hoverLogin.hover();
     await this.commandButton.click();
     await this.login();
   }
