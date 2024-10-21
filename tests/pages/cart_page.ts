@@ -11,4 +11,8 @@ export class CartPage {
     await this.page.click('input[data-action="delete"]');
   }
 
+  async buy() {
+    await this.page.click("#sc-buy-box-ptc-button");
+  }
+
 }

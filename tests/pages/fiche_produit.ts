@@ -28,4 +28,8 @@ export class ProductPage {
   async addToCart() {
     await this.page.click(this.addToCartButton);
   }
+
+  async buyArticlesFrequentlyBoughtTogether(){
+    await this.page.click("#AddToCartLibrary-AddToCartButton-Personalization");
+  }
 }
