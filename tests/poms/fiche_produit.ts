@@ -18,9 +18,9 @@ export class ProductAction {
     this.goToCart = page.locator("#nav-cart");
     this.deleteProduct = page.locator(".sc-action-delete");
     this.firstProduct = page.locator(".s-main-slot .s-result-item").first();
-    this.firstFrequentProduct = page.locator(
-      "#AddToCartLibrary-AddToCartButton-Personalization"
-    );
+    this.firstFrequentProduct = page
+      .locator("#AddToCartLibrary-AddToCartButton-Personalization")
+      .first();
   }
 
   async searchProduct(product: string) {

@@ -38,5 +38,6 @@ test.describe("Acheter les produits fréquemment achetés ensemble", () => {
     await productAction.addFrequentProductToCart();
     await productAction.goToCartPage();
     await homePageAction.command();
+    await homePageAction.login();
   });
 });
