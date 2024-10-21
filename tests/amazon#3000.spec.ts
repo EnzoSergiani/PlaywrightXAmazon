@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test";
 
 test.describe("Amazon Product Search Testing", () => {
   test("search for a product by category", async ({ page }) => {

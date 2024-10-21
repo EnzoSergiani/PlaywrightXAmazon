@@ -40,7 +40,7 @@ npx playwright test –trace on
 - [ ] Me donner la liste de vos tests rédiger en Gherkin dans un fichier (au moins 10)
   - [x] création de compte,
   - [x] login,
-  - [ ] logout,
+  - [x] logout,
   - [ ] création de compte avec un email existant,
   - [ ] vérifier le contenu de la page d’accueil,
   - [x] rechercher un produit dans le moteur de recherche puis l’acheter,
