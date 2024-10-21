@@ -11,6 +11,7 @@ export class ProductAction {
   readonly firstProduct: Locator;
   readonly firstFrequentProduct: Locator;
   readonly addToCartButton: Locator;
+  readonly buyProduct: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -23,6 +24,7 @@ export class ProductAction {
       .locator("#AddToCartLibrary-AddToCartButton-Personalization")
       .first();
     this.addToCartButton = page.locator("#add-to-cart-button");
+    this.buyProduct = page.locator("#buy-now-button");
   }
 
   async searchProduct(product: string) {
@@ -48,5 +50,9 @@ export class ProductAction {
 
   async deleteProductInBasket() {
     await this.deleteProduct.click();
+  }
+
+  async buyIt() {
+    await this.buyProduct.click();
   }
 }
