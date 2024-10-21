@@ -51,7 +51,7 @@ npx playwright test –trace on
   - [x] passer une commande avec un login pendant le checkout,
   - [ ] supprimer produit du panier, Sur une catégorie vérifier les filtres et différentes catégories,
   - [ ] Acheter les “Produits fréquemment achetés ensemble”,
-  - [ ] vérifier les adresses de livraison
+  - [x] vérifier les adresses de livraison
 - [ ] utiliser des POMs
   - [x] fiche produit,
   - [x] page de catégorie,
