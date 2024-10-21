@@ -29,9 +29,6 @@ test.describe("Create a new user", () => {
 });
 
 test.describe("log out", () => {
-  test("access to the page", async ({ page }) => {
-    await page.goto("https://www.amazon.fr/");
-  });
   test("access to the login page", async ({ page }) => {
     await page.goto("https://www.amazon.fr");
     await page.click("#nav-link-accountList");
@@ -39,9 +36,10 @@ test.describe("log out", () => {
     await page.click("#continue");
     await page.fill("#ap_password", USER.PASSWORD);
     await page.click("#signInSubmit");
-  });
-  test("log out", async ({ page }) => {
-    await page.click("#nav-link-accountList");
+
+    await page.waitForTimeout(3000);
+
+    await page.hover("#nav-link-accountList");
     await page.click("#nav-item-signout");
   });
 });
