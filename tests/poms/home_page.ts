@@ -89,12 +89,6 @@ export class homePageAction {
   }
 
   async goToDeliveryAddress() {
-    function delay(milliseconds) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, milliseconds);
-      });
-    }
-
     await this.buttonDeliveryAddress.click();
   }
 
