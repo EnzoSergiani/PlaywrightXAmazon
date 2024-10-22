@@ -13,5 +13,6 @@ test.describe("Rechercher un produit dans le moteur de recherche puis l’achete
     await productAction.addProductToCart();
     await checkoutPageAction.goToCartPage();
     await checkoutPageAction.orderCart();
+    await productAction.proceedToRetailCheckout();
   });
 });

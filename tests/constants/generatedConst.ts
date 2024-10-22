@@ -7,7 +7,7 @@ export const NEW_USER = {
 };
 
 export const USER = {
-  NAME: "David Loutre",
-  EMAIL: "davidloutre11@gmail.com",
-  PASSWORD: "loutre123456",
-};
+    NAME: "David Loutre",
+    EMAIL: "davidloutre11@gmail.com",
+    PASSWORD: "loutre123456"
+}

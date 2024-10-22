@@ -8,6 +8,7 @@ export class ProductAction {
   readonly firstProduct: Locator;
   readonly firstFrequentProduct: Locator;
   readonly buttonBuyProduct: Locator;
+  readonly buttonProceedToRetailCheckout: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,10 +18,11 @@ export class ProductAction {
     this.firstFrequentProduct = page
       .locator("#AddToCartLibrary-AddToCartButton-Personalization")
       .first();
-    this.buttonAddToCart = page.locator(
-      'button[aria-label="Ajouter au panier"]'
-    ); //! ERROR: The locator is not correct
+    this.buttonAddToCart = page.locator("#add-to-cart-button");
     this.buttonBuyProduct = page.locator("#buy-now-button");
+    this.buttonProceedToRetailCheckout = page.locator(
+      'input[name="proceedToRetailCheckout"]'
+    );
   }
 
   // This method is used to search a product in the search bar
@@ -46,5 +48,10 @@ export class ProductAction {
   // This method is used to buy a product from the product page
   async buyProduct() {
     await this.buttonBuyProduct.click();
+  }
+
+  // This method is used to proceed to the retail checkout
+  async proceedToRetailCheckout() {
+    await this.buttonProceedToRetailCheckout.click();
   }
 }
