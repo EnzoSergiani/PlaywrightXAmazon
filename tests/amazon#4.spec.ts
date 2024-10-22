@@ -1,4 +1,4 @@
-import { test } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Vérifier les adresses de livraison", () => {
   test("Vérifier les adresses de livraison", async ({ homePageAction }) => {

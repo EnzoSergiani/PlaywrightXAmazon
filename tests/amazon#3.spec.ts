@@ -1,4 +1,4 @@
-import { test } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Acheter les produits fréquemment achetés ensemble", () => {
   test("Acheter les produits fréquemment achetés ensemble", async ({

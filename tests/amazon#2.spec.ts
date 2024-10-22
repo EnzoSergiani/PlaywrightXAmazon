@@ -1,4 +1,4 @@
-import { test } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer", () => {
   test("Rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer", async ({

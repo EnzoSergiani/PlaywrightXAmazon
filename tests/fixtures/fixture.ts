@@ -1,9 +1,10 @@
 import { test as base } from "@playwright/test";
-import { homePageAction } from "./home_page";
-import { ProductAction } from "./fiche_produit";
-import { CreateAccountPageAction } from "./page_creation_compte";
-import { CategoryPageAction } from "./page_categorie";
-import { CheckoutPageAction } from "./page_checkout";
+
+import { homePageAction } from "@poms/home_page";
+import { ProductAction } from "@poms/fiche_produit";
+import { CreateAccountPageAction } from "@poms/page_creation_compte";
+import { CategoryPageAction } from "@poms/page_categorie";
+import { CheckoutPageAction } from "@poms/page_checkout";
 
 const test = base.extend<{
   homePageAction: homePageAction;

@@ -1,4 +1,4 @@
-import { test } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Passer une commande avec un login pendant le checkout", () => {
   test("Passer une commande avec un login pendant le checkout", async ({

@@ -1,4 +1,4 @@
-import { test } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Create a new user", () => {
   test("access to the page", async ({ homePageAction }) => {

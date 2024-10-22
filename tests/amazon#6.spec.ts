@@ -1,3 +1,4 @@
+/*
 import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 
@@ -14,4 +15,16 @@ test("rechercher un produit dans le moteur de recherche puis l’acheter", async
   await firstProduct.click(); // on clique sur le premier article
   await page.click("#add-to-cart-button"); // on ajoute le premier article au panier
   await page.click("input[name='proceedToRetailCheckout']"); // on clique sur le bouton pour acheter
+});
+*/
+
+import { test } from "@fixtures/fixture";
+
+test("rechercher un produit dans le moteur de recherche puis l’acheter", async ({
+  homePageAction,
+  productAction,
+}) => {
+  homePageAction.navigateToHomePage();
+  productAction.searchProduct("laptop");
+  productAction;
 });

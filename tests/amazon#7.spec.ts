@@ -1,8 +1,10 @@
-import { test, expect } from '@playwright/test';
-import { NEW_USER } from "./generatedConst";
+import { test } from "@fixtures/fixture";
+import { NEW_USER } from "@constants/generatedConst";
 
 test.describe("Passer une commande avec un register pendant le checkout", () => {
-  test("Passer une commande avec un register pendant le checkout", async ({ page }) => {
+  test("Passer une commande avec un register pendant le checkout", async ({
+    page,
+  }) => {
     await page.goto("https://www.amazon.fr"); // on va sur amazon.fr
     await page.click("#sp-cc-rejectall-link"); // on refuse les cookies
     await page.fill("input[name='field-keywords']", "laptop"); // on recherche un article
