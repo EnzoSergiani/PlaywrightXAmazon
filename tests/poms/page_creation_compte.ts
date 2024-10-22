@@ -10,6 +10,7 @@ export class CreateAccountPageAction {
   readonly buttonContinue: Locator;
   readonly buttonCreateAccount: Locator;
   readonly buttonSignInSubmit: Locator;
+  readonly popupReuseEmail: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -20,6 +21,7 @@ export class CreateAccountPageAction {
     this.buttonContinue = page.locator("#continue").first();
     this.buttonSignInSubmit = page.locator("#signInSubmit");
     this.buttonCreateAccount = page.locator("#createAccountSubmit");
+    this.popupReuseEmail = page.locator("#auth-email-missing-alert");
   }
 
   // This method is used to log in
@@ -38,5 +40,10 @@ export class CreateAccountPageAction {
     await this.inputPassword.fill(NEW_USER.PASSWORD);
     await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
     await this.buttonContinue.click();
+  }
+
+  // This method is used to alert the reuse of an email
+  async alertReuseEmail() {
+    await this.popupReuseEmail.waitFor({ state: "visible" });
   }
 }

@@ -11,7 +11,7 @@ test.describe("Passer une commande avec un register pendant le checkout", () => 
     await productAction.searchProduct("laptop");
     await productAction.selectFirstProduct();
     await productAction.buyProduct();
-    await accountAction.register();
+    await createAccountPageAction.register();
     const checkEmailMessage = await homePageAction.page.locator(
       "text=Créer un compte"
     );
