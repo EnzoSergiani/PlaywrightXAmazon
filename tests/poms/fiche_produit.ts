@@ -2,7 +2,7 @@ import { Locator, Page } from "@playwright/test";
 
 export class ProductAction {
   readonly page: Page;
-  readonly dislikeCookies: Page;
+  readonly refuseCookies: Locator;
   readonly searchBar: Locator;
   readonly buttonSearch: Locator;
   readonly goToCart: Locator;
@@ -14,6 +14,7 @@ export class ProductAction {
 
   constructor(page: Page) {
     this.page = page;
+    this.refuseCookies = page.locator("#sp-cc-rejectall-link");
     this.searchBar = page.locator("#twotabsearchtextbox");
     this.buttonSearch = page.locator("#nav-search-submit-button");
     this.goToCart = page.locator("#nav-cart");
@@ -53,5 +54,9 @@ export class ProductAction {
 
   async addToCart() {
     await this.addToCartButton.click();
+  }
+
+  async dislikeCookies() {
+    await this.refuseCookies.click();
   }
 }
