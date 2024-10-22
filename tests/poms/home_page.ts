@@ -36,19 +36,23 @@ export class homePageAction {
     this.buttonLogOut = page.locator("#nav-item-signout");
   }
 
+  // This method is used to navigate to the home page
   async navigateToHomePage() {
     await this.page.goto("https://www.amazon.fr/");
   }
 
+  // This method is used to refuse the cookies
   async dislikeCookies() {
     await this.refuseCookies.click();
   }
 
+  // This method is used to access the registration page
   async accessRegisterPage() {
     await this.buttonAccessAccount.click();
     await this.register();
   }
 
+  // This method is used to register a new user
   async register() {
     await this.buttonCreateAccount.click();
     await this.inputCustomer.fill(NEW_USER.NAME);
@@ -58,11 +62,13 @@ export class homePageAction {
     await this.buttonContinue.click();
   }
 
+  // This method is used to access the login page
   async accessLoginPage() {
     await this.buttonAccessAccount.click();
     this.login();
   }
 
+  // This method is used to log in
   async login() {
     await this.inputEmail.fill(USER.EMAIL);
     await this.buttonContinue.click();
@@ -70,11 +76,13 @@ export class homePageAction {
     await this.buttonSignInSubmit.click();
   }
 
+  // This method is used to access to log out
   async accessLogOut() {
     await this.hoverLogin.hover();
     await this.logOut();
   }
 
+  // This method is used to log out
   async logOut() {
     await this.buttonLogOut.click();
   }
@@ -84,6 +92,7 @@ export class homePageAction {
     await this.buttonDeliveryAddress.click();
   }
 
+  // This method is used to log in to the delivery address popup
   async loginDeliveryAddress() {
     await this.buttonLoginDeliveryAddress.click();
     await this.login();
