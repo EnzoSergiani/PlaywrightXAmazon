@@ -12,7 +12,6 @@ export class homePageAction {
   readonly inputPasswordCheck: Locator;
   readonly buttonContinue: Locator;
   readonly buttonSignInSubmit: Locator;
-  readonly commandButton: Locator;
   readonly buttonDeliveryAddress: Locator;
   readonly buttonLoginDeliveryAddress: Locator;
   readonly hoverLogin: Locator;
@@ -29,7 +28,6 @@ export class homePageAction {
     this.inputPasswordCheck = page.locator("#ap_password_check");
     this.buttonContinue = page.locator("#continue").first();
     this.buttonSignInSubmit = page.locator("#signInSubmit");
-    this.commandButton = page.locator("#sc-buy-box-ptc-button");
     this.buttonDeliveryAddress = page.locator(
       "#nav-global-location-popover-link"
     );
@@ -81,12 +79,7 @@ export class homePageAction {
     await this.buttonLogOut.click();
   }
 
-  async command() {
-    await this.hoverLogin.hover();
-    await this.commandButton.click();
-    await this.login();
-  }
-
+  // This method is used to go to the delivery address page
   async goToDeliveryAddress() {
     await this.buttonDeliveryAddress.click();
   }

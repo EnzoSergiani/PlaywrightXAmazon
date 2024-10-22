@@ -11,7 +11,7 @@ test.describe("Acheter les produits fréquemment achetés ensemble", () => {
     await productAction.selectFirstProduct();
     await productAction.addFrequentProductToCart();
     await productAction.goToCartPage();
-    await homePageAction.command();
+    await productAction.orderCart();
     await homePageAction.login();
   });
 });
