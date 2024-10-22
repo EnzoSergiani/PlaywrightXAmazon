@@ -52,13 +52,13 @@ npx playwright test –trace on
   - [ ] supprimer produit du panier, Sur une catégorie vérifier les filtres et différentes catégories,
   - [ ] Acheter les “Produits fréquemment achetés ensemble”,
   - [x] vérifier les adresses de livraison
-- [ ] utiliser des POMs
+- [x] utiliser des POMs
   - [x] fiche produit,
   - [x] page de catégorie,
   - [x] Home page,
   - [x] page de création de compte,
   - [x] page checkout,
-- [ ] une fixture,
+- [x] une fixture,
 - [ ] les scripts des tests avec l’ID correspondant au fichier Gherkin,
 - [ ] ils doivent être exécutable plusieurs fois
 
