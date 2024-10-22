@@ -11,6 +11,7 @@ export class ProductAction {
   readonly firstFrequentProduct: Locator;
   readonly addToCartButton: Locator;
   readonly buyProduct: Locator;
+  readonly buttonOrderCart: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -25,6 +26,7 @@ export class ProductAction {
       .first();
     this.addToCartButton = page.locator("#add-to-cart-button");
     this.buyProduct = page.locator("#buy-now-button");
+    this.buttonOrderCart = page.locator("#sc-buy-box-ptc-button");
   }
 
   async searchProduct(product: string) {
@@ -58,5 +60,9 @@ export class ProductAction {
 
   async dislikeCookies() {
     await this.refuseCookies.click();
+  }
+
+  async orderCart() {
+    await this.buttonOrderCart.click();
   }
 }
