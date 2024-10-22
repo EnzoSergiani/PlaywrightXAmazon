@@ -8,7 +8,7 @@ test.describe("Acheter les produits fréquemment achetés ensemble", () => {
     await homePageAction.navigateToHomePage();
     await homePageAction.dislikeCookies();
     await productAction.searchProduct("laptop");
-    await productAction.clickOnFirstProduct();
+    await productAction.selectFirstProduct();
     await productAction.addFrequentProductToCart();
     await productAction.goToCartPage();
     await homePageAction.command();

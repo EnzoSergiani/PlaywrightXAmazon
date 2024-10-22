@@ -8,7 +8,7 @@ test.describe("Passer une commande avec un login pendant le checkout", () => {
     await homePageAction.navigateToHomePage();
     await homePageAction.dislikeCookies();
     await productAction.searchProduct("laptop");
-    await productAction.clickOnFirstProduct();
+    await productAction.selectFirstProduct();
     await productAction.buyIt();
     await homePageAction.login();
   });

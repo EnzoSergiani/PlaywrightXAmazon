@@ -20,11 +20,11 @@ export class HomePage {
     return this.page.textContent(".s-title-instructions-style");
   }
 
-  async clickOnFirstProduct() {
+  async selectFirstProduct() {
     const firstProduct = await this.page
       .locator(".s-main-slot .s-result-item")
       .first();
-      await firstProduct.click();
+    await firstProduct.click();
   }
 
   async clickCart() {

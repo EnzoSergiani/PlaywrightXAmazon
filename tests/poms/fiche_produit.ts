@@ -32,11 +32,7 @@ export class ProductAction {
     await this.buttonSearch.click();
   }
 
-  async clickOnFirstProduct() {
-    await this.firstProduct.click();
-  }
-
-  async addFirstProductToCart() {
+  async selectFirstProduct() {
     await this.firstProduct.click();
   }
 
@@ -48,11 +44,15 @@ export class ProductAction {
     await this.goToCart.click();
   }
 
-  async deleteProductInBasket() {
+  async deleteProductInCart() {
     await this.deleteProduct.click();
   }
 
   async buyIt() {
     await this.buyProduct.click();
+  }
+
+  async addToCart() {
+    await this.addToCartButton. click();
   }
 }

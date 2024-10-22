@@ -8,8 +8,10 @@ test.describe("Rechercher un produit, le mettre dans le panier, voir le panier p
     await homePageAction.navigateToHomePage();
     await homePageAction.dislikeCookies();
     await productAction.searchProduct("souris");
-    await productAction.addFirstProductToCart();
+    await productAction.selectFirstProduct();
+    await productAction.addToCart();
     await productAction.goToCartPage();
-    await productAction.deleteProductInBasket();
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await productAction.deleteProductInCart();
   });
 });
