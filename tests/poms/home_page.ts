@@ -1,6 +1,5 @@
 import { Locator, Page } from "@playwright/test";
 import { NEW_USER, USER } from "../generatedConst";
-import { register } from "module";
 
 export class homePageAction {
   readonly page: Page;

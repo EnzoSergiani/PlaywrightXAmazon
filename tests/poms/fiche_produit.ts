@@ -1,5 +1,4 @@
 import { Locator, Page } from "@playwright/test";
-import { homePageAction } from "./home_page";
 
 export class ProductAction {
   readonly page: Page;
@@ -53,6 +52,6 @@ export class ProductAction {
   }
 
   async addToCart() {
-    await this.addToCartButton. click();
+    await this.addToCartButton.click();
   }
 }
