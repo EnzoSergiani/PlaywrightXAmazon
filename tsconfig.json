@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "types": ["node", "jest", "playwright"],
+    "baseUrl": "./",
+    "paths": {
+      "@poms/*": ["tests/poms/*"],
+      "@test/*": ["tests/*"],
+      "@constants/*": ["tests/constants/*"],
+      "@fixtures/*": ["tests/fixtures/*"]
+    }
+  },
+  "include": ["tests/**/*.ts", "poms/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

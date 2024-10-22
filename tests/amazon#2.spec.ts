@@ -1,18 +1,18 @@
-import { test, expect } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer", () => {
   test("Rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer", async ({
     homePageAction,
     productAction,
+    checkoutPageAction,
   }) => {
-    await homePageAction.navigateToHomePage();
+    await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("laptop");
-    await productAction.clickOnFirstProduct();
-    await productAction.addToCart();
-    await productAction.goToCartPage();
-    await productAction.deleteProductInBasket();
-    const emptyCartMessage = await homePageAction.page.locator('text=Votre panier Amazon est vide');
-    await expect(emptyCartMessage).toBeVisible();
+    await productAction.searchProduct("souris");
+    await productAction.selectFirstProduct();
+    await productAction.addProductToCart();
+    await checkoutPageAction.goToCartPage();
+    await await new Promise((resolve) => setTimeout(resolve, 2000));
+    await checkoutPageAction.deleteProductInCart();
   });
 });

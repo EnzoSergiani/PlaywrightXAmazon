@@ -1,50 +1,30 @@
 import { Locator, Page } from "@playwright/test";
-import { NEW_USER, USER } from "../generatedConst";
 
-export class CreateAccount {
+export class CheckoutPageAction {
   readonly page: Page;
-  //   readonly buttonAccessAccount: Locator;
-  //   readonly buttonCreateAccount: Locator;
-  //   readonly inputEmail: Locator;
-  //   readonly inputCustomer: Locator;
-  //   readonly inputPassword: Locator;
-  //   readonly inputPasswordCheck: Locator;
-  //   readonly buttonContinue: Locator;
-  //   readonly buttonSignInSubmit: Locator;
+  readonly buttonGoToCart: Locator;
+  readonly buttonDeleteProduct: Locator;
+  readonly buttonBuyCart: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    // this.buttonAccessAccount = page.locator("#nav-link-accountList");
-    // this.buttonCreateAccount = page.locator("#createAccountSubmit");
-    // this.inputEmail = page.locator("#ap_email");
-    // this.inputCustomer = page.locator("#ap_customer_name");
-    // this.inputPassword = page.locator("#ap_password");
-    // this.inputPasswordCheck = page.locator("#ap_password_check");
-    // this.buttonContinue = page.locator("#continue");
-    // this.buttonSignInSubmit = page.locator("#signInSubmit");
+    this.buttonGoToCart = page.locator("#nav-cart");
+    this.buttonDeleteProduct = page.locator('input[data-action="delete"]');
+    this.buttonBuyCart = page.locator("#sc-buy-box-ptc-button");
   }
 
-  //   async navigateToHomePage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //   }
+  // This method is used to go to the cart page
+  async goToCartPage() {
+    await this.buttonGoToCart.click();
+  }
 
-  //   async accessRegisterPage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //     await this.buttonAccessAccount.click();
-  //     await this.buttonCreateAccount.click();
-  //     await this.inputCustomer.fill(NEW_USER.NAME);
-  //     await this.inputEmail.fill(NEW_USER.EMAIL);
-  //     await this.inputPassword.fill(NEW_USER.PASSWORD);
-  //     await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
-  //     await this.buttonContinue.click();
-  //   }
+  // This method is used to delete a product in the cart
+  async deleteProductInCart() {
+    await this.buttonDeleteProduct.click();
+  }
 
-  //   async accessLoginPage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //     await this.buttonAccessAccount.click();
-  //     await this.inputEmail.fill(USER.EMAIL);
-  //     await this.buttonContinue.click();
-  //     await this.inputPassword.fill(USER.PASSWORD);
-  //     await this.buttonSignInSubmit.click
-  //   }
+  // This method is used to order the cart
+  async orderCart() {
+    await this.buttonBuyCart.click();
+  }
 }

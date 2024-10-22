@@ -1,18 +1,20 @@
-import { test, expect } from "./poms/fixture";
+import { test } from "@fixtures/fixture";
 
 test.describe("Passer une commande avec un register pendant le checkout", () => {
   test("Passer une commande avec un register pendant le checkout", async ({
     homePageAction,
     productAction,
-    accountAction,
+    createAccountPageAction,
   }) => {
-    await homePageAction.navigateToHomePage();
+    await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
     await productAction.searchProduct("laptop");
-    await productAction.clickOnFirstProduct();
+    await productAction.selectFirstProduct();
     await productAction.buyProduct();
-    await accountAction.register();
-    const checkEmailMessage = await homePageAction.page.locator("text=Créer un compte");
+    await createAccountPageAction.register();
+    const checkEmailMessage = await homePageAction.page.locator(
+      "text=Créer un compte"
+    );
     await expect(checkEmailMessage).toHaveCount(0);
   });
 });

@@ -1,59 +1,49 @@
 import { Locator, Page } from "@playwright/test";
-import { NEW_USER, USER } from "../generatedConst";
+import { NEW_USER, USER } from "@constants/generatedConst";
 
-export class accountAction {
+export class CreateAccountPageAction {
   readonly page: Page;
-  //   readonly buttonAccessAccount: Locator;
-  readonly buttonCreateAccount: Locator;
   readonly inputEmail: Locator;
   readonly inputCustomer: Locator;
   readonly inputPassword: Locator;
   readonly inputPasswordCheck: Locator;
   readonly buttonContinue: Locator;
-  //   readonly buttonSignInSubmit: Locator;
+  readonly buttonCreateAccount: Locator;
+  readonly buttonSignInSubmit: Locator;
+  readonly popupReuseEmail: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    // this.buttonAccessAccount = page.locator("#nav-link-accountList");
-    this.buttonCreateAccount = page.locator("#createAccountSubmit");
     this.inputEmail = page.locator("#ap_email");
     this.inputCustomer = page.locator("#ap_customer_name");
-    this.inputPassword = page.locator("#ap_password");
     this.inputPasswordCheck = page.locator("#ap_password_check");
-    this.buttonContinue = page.locator("#continue");
-    // this.buttonSignInSubmit = page.locator("#signInSubmit");
+    this.inputPassword = page.locator("#ap_password");
+    this.buttonContinue = page.locator("#continue").first();
+    this.buttonSignInSubmit = page.locator("#signInSubmit");
+    this.buttonCreateAccount = page.locator("#createAccountSubmit");
+    this.popupReuseEmail = page.locator("#auth-email-missing-alert");
   }
 
-  //   async navigateToHomePage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //   }
+  // This method is used to log in
+  async login() {
+    await this.inputEmail.fill(USER.EMAIL);
+    await this.buttonContinue.click();
+    await this.inputPassword.fill(USER.PASSWORD);
+    await this.buttonSignInSubmit.click();
+  }
 
-  //   async accessRegisterPage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //     await this.buttonAccessAccount.click();
-  //     await this.buttonCreateAccount.click();
-  //     await this.inputCustomer.fill(NEW_USER.NAME);
-  //     await this.inputEmail.fill(NEW_USER.EMAIL);
-  //     await this.inputPassword.fill(NEW_USER.PASSWORD);
-  //     await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
-  //     await this.buttonContinue.click();
-  //   }
-
-  //   async accessLoginPage() {
-  //     await this.page.goto("https://www.amazon.fr/");
-  //     await this.buttonAccessAccount.click();
-  //     await this.inputEmail.fill(USER.EMAIL);
-  //     await this.buttonContinue.click();
-  //     await this.inputPassword.fill(USER.PASSWORD);
-  //     await this.buttonSignInSubmit.click
-  //   }
-
-  async register(){
+  // This method is used to register a new user
+  async register() {
     await this.buttonCreateAccount.click();
     await this.inputCustomer.fill(NEW_USER.NAME);
     await this.inputEmail.fill(NEW_USER.EMAIL);
     await this.inputPassword.fill(NEW_USER.PASSWORD);
     await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
     await this.buttonContinue.click();
+  }
+
+  // This method is used to alert the reuse of an email
+  async alertReuseEmail() {
+    await this.popupReuseEmail.waitFor({ state: "visible" });
   }
 }

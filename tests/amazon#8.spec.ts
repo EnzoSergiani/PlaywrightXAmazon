@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-import { USER } from "./generatedConst";
+import { USER } from "@constants/generatedConst";
 const { test, expect } = require("@playwright/test");
 
 test.describe("Amazon Address Verification", () => {
