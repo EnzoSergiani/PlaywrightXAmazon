@@ -20,11 +20,17 @@ test("rechercher un produit dans le moteur de recherche puis l’acheter", async
 
 import { test } from "@fixtures/fixture";
 
-test("rechercher un produit dans le moteur de recherche puis l’acheter", async ({
-  homePageAction,
-  productAction,
-}) => {
-  homePageAction.navigateToHomePage();
-  productAction.searchProduct("laptop");
-  productAction;
+test.describe("Rechercher un produit dans le moteur de recherche puis l’acheter", () => {
+  test("Rechercher un produit dans le moteur de recherche puis l’acheter", async ({
+    homePageAction,
+    productAction,
+  }) => {
+    await homePageAction.navigateToHomePage();
+    await homePageAction.dislikeCookies();
+    await productAction.searchProduct("laptop");
+    await productAction.selectFirstProduct();
+    await productAction.addToCart();
+    await productAction.goToCartPage();
+    await productAction.orderCart();
+  });
 });
