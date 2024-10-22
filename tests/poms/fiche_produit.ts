@@ -4,27 +4,23 @@ export class ProductAction {
   readonly page: Page;
   readonly searchBar: Locator;
   readonly buttonSearch: Locator;
-  readonly goToCart: Locator;
-  readonly deleteProduct: Locator;
+  readonly buttonAddToCart: Locator;
   readonly firstProduct: Locator;
   readonly firstFrequentProduct: Locator;
-  readonly addToCartButton: Locator;
-  readonly buyProduct: Locator;
-  readonly buttonOrderCart: Locator;
+  readonly buttonBuyProduct: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.searchBar = page.locator("#twotabsearchtextbox");
     this.buttonSearch = page.locator("#nav-search-submit-button");
-    this.goToCart = page.locator("#nav-cart");
-    this.deleteProduct = page.locator('input[data-action="delete"]');
     this.firstProduct = page.locator(".s-main-slot .s-result-item").first();
     this.firstFrequentProduct = page
       .locator("#AddToCartLibrary-AddToCartButton-Personalization")
       .first();
-    this.addToCartButton = page.locator("#add-to-cart-button");
-    this.buyProduct = page.locator("#buy-now-button");
-    this.buttonOrderCart = page.locator("#sc-buy-box-ptc-button");
+    this.buttonAddToCart = page.locator(
+      'button[aria-label="Ajouter au panier"]'
+    ); //! ERROR: The locator is not correct
+    this.buttonBuyProduct = page.locator("#buy-now-button");
   }
 
   // This method is used to search a product in the search bar
@@ -43,28 +39,12 @@ export class ProductAction {
     await this.firstFrequentProduct.click();
   }
 
-  // This method is used to go to the cart page
-  async goToCartPage() {
-    await this.goToCart.click();
-  }
-
-  // This method is used to delete a product in the cart
-  async deleteProductInCart() {
-    await this.deleteProduct.click();
-  }
-
-  // This method is used to buy a product from the product page
-  async buyIt() {
-    await this.buyProduct.click();
-  }
-
   // This method is used to add a product to the cart
-  async addToCart() {
-    await this.addToCartButton.click();
+  async addProductToCart() {
+    await this.buttonAddToCart.click();
   }
-
-  // This method is used to order the cart
-  async orderCart() {
-    await this.buttonOrderCart.click();
+  // This method is used to buy a product from the product page
+  async buyProduct() {
+    await this.buttonBuyProduct.click();
   }
 }

@@ -2,26 +2,36 @@ import { test } from "@fixtures/fixture";
 
 test.describe("Create a new user", () => {
   test("access to the page", async ({ homePageAction }) => {
-    await homePageAction.navigateToHomePage();
+    await homePageAction.goToHomePage();
   });
-  test("access to the register page", async ({ homePageAction }) => {
-    await homePageAction.navigateToHomePage();
+  test("access to the register page", async ({
+    homePageAction,
+    createAccountPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
     await homePageAction.accessRegisterPage();
-    await homePageAction.register();
+    await createAccountPageAction.register();
   });
-  test("access to the login page", async ({ homePageAction }) => {
-    await homePageAction.navigateToHomePage();
+  test("access to the login page", async ({
+    homePageAction,
+    createAccountPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
     await homePageAction.accessLoginPage();
-    await homePageAction.login();
+    await createAccountPageAction.login();
   });
 });
 
 test.describe("log out", () => {
-  test("access to the login page and log out", async ({ homePageAction }) => {
-    await homePageAction.navigateToHomePage();
+  test("access to the login page and log out", async ({
+    homePageAction,
+    createAccountPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
     await homePageAction.accessLoginPage();
+    await createAccountPageAction.login();
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    await homePageAction.navigateToHomePage();
+    await homePageAction.goToHomePage();
     await homePageAction.accessLogOut();
   });
 });
