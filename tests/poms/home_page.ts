@@ -23,44 +23,39 @@ export class homePageAction {
     this.buttonLogOut = page.locator("#nav-item-signout");
   }
 
-  // This method is used to navigate to the home page
+  // Cette méthode est utilisée pour naviguer vers la page d'accueil
   async goToHomePage() {
     await this.page.goto("https://www.amazon.fr/");
   }
 
-  // This method is used to refuse the cookies
+  // Cette méthode est utilisée pour refuser les cookies
   async dislikeCookies() {
     await this.refuseCookies.click();
   }
 
-  // This method is used to access the registration page
+  // Cette méthode est utilisée pour accéder à la page d'inscription
   async accessRegisterPage() {
     await this.buttonAccessAccount.click();
   }
 
-  // This method is used to access the login page
+  // Cette méthode est utilisée pour accéder à la page de connexion
   async accessLoginPage() {
     await this.buttonAccessAccount.click();
   }
 
-  // This method is used to access to log out
+  // Cette méthode est utilisée pour afficher le bouton de déconnexion
   async accessLogOut() {
     await this.hoverLogin.hover();
     await this.logOut();
   }
 
-  // This method is used to log out
+  // Cette méthode est utilisée pour se déconnecter
   async logOut() {
     await this.buttonLogOut.click();
   }
 
-  // This method is used to go to the delivery address page
+  // Cette méthode est utilisée pour accéder à la page d'adresse de livraison
   async goToDeliveryAddress() {
     await this.buttonDeliveryAddress.click();
-  }
-
-  // This method is used to log in to the delivery address popup
-  async loginDeliveryAddress() {
-    await this.buttonLoginDeliveryAddress.click();
   }
 }

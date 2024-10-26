@@ -9,6 +9,7 @@ export class ProductAction {
   readonly firstFrequentProduct: Locator;
   readonly buttonBuyProduct: Locator;
   readonly buttonProceedToRetailCheckout: Locator;
+  readonly divQuantity: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -23,35 +24,58 @@ export class ProductAction {
     this.buttonProceedToRetailCheckout = page.locator(
       'input[name="proceedToRetailCheckout"]'
     );
+    this.divQuantity = page.locator("#quantityRelocate_feature_div");
   }
 
-  // This method is used to search a product in the search bar
+  // Cette méthode est utilisée pour rechercher un produit dans la barre de recherche
   async searchProduct(product: string) {
     await this.searchBar.fill(product);
     await this.buttonSearch.click();
   }
 
-  // This method is used to select the first product in the search result
+  // Cette méthode est utilisée pour sélectionner le premier produit dans le résultat de la recherche
   async selectFirstProduct() {
     await this.firstProduct.click();
   }
 
-  // This method is used to add the first frequent product to the cart
+  // Cette méthode est utilisée pour ajouter le premier produit fréquent au panier
   async addFrequentProductToCart() {
     await this.firstFrequentProduct.click();
   }
 
-  // This method is used to add a product to the cart
+  // Cette méthode est utilisée pour ajouter le produit sur la page actuelle au panier
   async addProductToCart() {
     await this.buttonAddToCart.click();
   }
-  // This method is used to buy a product from the product page
+
+  // Cette méthode est utilisée pour acheter un produit à partir de la page du produit
   async buyProduct() {
     await this.buttonBuyProduct.click();
   }
 
-  // This method is used to proceed to the retail checkout
+  // Cette méthode est utilisée pour passer à la caisse de détail
   async proceedToRetailCheckout() {
     await this.buttonProceedToRetailCheckout.click();
+  }
+
+  // Cette méthode est utilisée pour définir la quantité d'un produit
+  async setQuantityTo(quantity: number) {
+    await this.divQuantity.click();
+    await this.page.locator(`#quantity_${quantity - 1}`).click();
+  }
+
+  // Cette méthode est utilisée pour retourner le prix du produit
+  async getPrice() {
+    const price = (
+      await this.page
+        .locator("#corePrice_feature_div")
+        .getByText("€")
+        .first()
+        .innerText()
+    )
+      .replace(" €", "")
+      .replace(",", ".")
+      .trim();
+    return parseFloat(price);
   }
 }

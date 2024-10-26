@@ -17,23 +17,52 @@ npm install
 Pour lancer les tests Playwright, utilisez les commandes suivantes :
 
 ```sh
-npx playwright test
-npx playwright test –ui
-npx playwright test –trace on
+npx playwright test                # executer tous les tests
+npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulier
 ```
 
-## Test
+## Tests
 
-- n°1 : création de compte et connexion
-- n°2 : rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer
-- n°3 : rechercher un produit, ajouter les produits fréquemment achetés ensemble au panier
-- n°4 : vérifier les adresses de livraison
-- n°5 : passer une commande avec un login pendant le checkout
-- n°6 : rechercher un produit dans le moteur de recherche puis l’acheter,
-- n°7 : ...
-- n°8 : ...
-- n°9 : ...
-- n°10 : ...
+`compte` : Tests sur un compte
+
+- accès à la page principale
+- création d'un compte,
+- connexion à un compte,
+- tentative création de compte avec la même adresse mail,
+- déconnexion.
+
+`produit` : Tests sur un produit
+
+- rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer,
+- acheter les produits fréquemment achetés ensemble.
+
+`commande` : Tests sur une commande
+
+- passer une commande avec un login pendant le checkout,
+- rechercher un produit dans le moteur de recherche puis l’acheter,
+- passer une commande avec un register pendant le checkout,
+- rechercher un produit dans le moteur de recherche puis l’acheter,
+- vérification du panier,
+- vérification du prix total du panier,
+- mettre un article de côté,
+- remettre un article de côté.
+
+`livraison` : Test sur une livraisons
+
+- vérifier l'adresse de livraison.
+
+`catégorie` : Tests sur une catégorie
+
+- ???
+
+## Auteurs
+
+- Thibaut LEMICHEL
+- Antoine RICHARD
+- Enzo SERGIANI
+- Adam VIDAL
+
+---
 
 ## Consignes
 
@@ -61,10 +90,3 @@ npx playwright test –trace on
 - [x] une fixture,
 - [ ] les scripts des tests avec l’ID correspondant au fichier Gherkin,
 - [ ] ils doivent être exécutable plusieurs fois
-
-## Auteurs
-
-- Thibaut LEMICHEL
-- Antoine RICHARD
-- Enzo SERGIANI
-- Adam VIDAL
