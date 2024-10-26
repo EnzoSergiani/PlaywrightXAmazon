@@ -47,7 +47,7 @@ npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulie
 - mettre un article de côté,
 - remettre un article de côté.
 
-`livraison` : Test sur une livraisons
+`livraison` : Test sur la livraison
 
 - vérifier l'adresse de livraison.
 
