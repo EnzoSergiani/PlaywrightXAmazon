@@ -26,8 +26,9 @@ test.describe("Create a new user", () => {
     createAccountPageAction,
   }) => {
     await homePageAction.goToHomePage();
+    await homePageAction.dislikeCookies();
     await homePageAction.accessRegisterPage();
-    await createAccountPageAction.register();
+    await createAccountPageAction.register(false); // this is not a new user
     await createAccountPageAction.alertReuseEmail();
   });
 

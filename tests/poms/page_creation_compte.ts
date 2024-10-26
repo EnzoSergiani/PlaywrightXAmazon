@@ -10,7 +10,7 @@ export class CreateAccountPageAction {
   readonly buttonContinue: Locator;
   readonly buttonCreateAccount: Locator;
   readonly buttonSignInSubmit: Locator;
-  readonly popupReuseEmail: Locator;
+  readonly alertMessageRegister: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -21,7 +21,7 @@ export class CreateAccountPageAction {
     this.buttonContinue = page.locator("#continue").first();
     this.buttonSignInSubmit = page.locator("#signInSubmit");
     this.buttonCreateAccount = page.locator("#createAccountSubmit");
-    this.popupReuseEmail = page.locator("#auth-email-missing-alert");
+    this.alertMessageRegister = page.locator("#register-mase-inlineerror");
   }
 
   // This method is used to log in
@@ -32,18 +32,29 @@ export class CreateAccountPageAction {
     await this.buttonSignInSubmit.click();
   }
 
-  // This method is used to register a new user
-  async register() {
-    await this.buttonCreateAccount.click();
-    await this.inputCustomer.fill(NEW_USER.NAME);
-    await this.inputEmail.fill(NEW_USER.EMAIL);
-    await this.inputPassword.fill(NEW_USER.PASSWORD);
-    await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
-    await this.buttonContinue.click();
+  // This method is used to register a new user or an already existing user
+  async register(isNewUser: boolean = true) {
+    if (isNewUser) {
+      await this.buttonCreateAccount.click();
+      await this.inputCustomer.fill(NEW_USER.NAME);
+      await this.inputEmail.fill(NEW_USER.EMAIL);
+      await this.inputPassword.fill(NEW_USER.PASSWORD);
+      await this.inputPasswordCheck.fill(NEW_USER.PASSWORD);
+      await this.buttonContinue.click();
+      return;
+    } else {
+      await this.buttonCreateAccount.click();
+      await this.inputCustomer.fill(USER.NAME);
+      await this.inputEmail.fill(USER.EMAIL);
+      await this.inputPassword.fill(USER.PASSWORD);
+      await this.inputPasswordCheck.fill(USER.PASSWORD);
+      await this.buttonContinue.click();
+      return;
+    }
   }
 
   // This method is used to alert the reuse of an email
   async alertReuseEmail() {
-    await this.popupReuseEmail.waitFor({ state: "visible" });
+    await this.alertMessageRegister.waitFor({ state: "visible" });
   }
 }
