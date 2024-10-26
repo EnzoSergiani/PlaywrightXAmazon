@@ -53,7 +53,7 @@ npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulie
 
 `catégorie` : Tests sur une catégorie
 
-- ???
+- accéder à un catégorie spécifique.
 
 ## Auteurs
 
