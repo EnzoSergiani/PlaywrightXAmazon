@@ -8,11 +8,11 @@ test.describe("Tests sur un produit", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("souris");
+    await productAction.searchProduct("clavier");
     await productAction.selectFirstProduct();
     await productAction.addProductToCart();
     await checkoutPageAction.goToCartPage();
-    await await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     await checkoutPageAction.deleteProductInCart();
   });
   test("Acheter les produits fréquemment achetés ensemble (ID: produit_002)", async ({
