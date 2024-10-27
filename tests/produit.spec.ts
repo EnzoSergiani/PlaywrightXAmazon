@@ -1,7 +1,7 @@
 import { test } from "@fixtures/fixture";
 
 test.describe("Tests sur un produit", () => {
-  test("rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer", async ({
+  test("Rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer (ID: produit_001)", async ({
     homePageAction,
     productAction,
     checkoutPageAction,
@@ -15,7 +15,7 @@ test.describe("Tests sur un produit", () => {
     await await new Promise((resolve) => setTimeout(resolve, 2000));
     await checkoutPageAction.deleteProductInCart();
   });
-  test("acheter les produits fréquemment achetés ensemble", async ({
+  test("Acheter les produits fréquemment achetés ensemble (ID: produit_002)", async ({
     homePageAction,
     productAction,
     checkoutPageAction,
