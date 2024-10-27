@@ -1,10 +1,12 @@
 import { test } from "@fixtures/fixture";
 
 test.describe("Tests sur un compte", () => {
-  test("accès à la page principale.", async ({ homePageAction }) => {
+  test("Accès à la page principale (ID: compte_001)", async ({
+    homePageAction,
+  }) => {
     await homePageAction.goToHomePage();
   });
-  test("création d'un compte.", async ({
+  test("Création d'un compte (ID: compte_002)", async ({
     homePageAction,
     createAccountPageAction,
   }) => {
@@ -12,7 +14,7 @@ test.describe("Tests sur un compte", () => {
     await homePageAction.accessRegisterPage();
     await createAccountPageAction.register();
   });
-  test("connexion à un compte.", async ({
+  test("Connexion à un compte (ID: compte_003)", async ({
     homePageAction,
     createAccountPageAction,
   }) => {
@@ -21,7 +23,7 @@ test.describe("Tests sur un compte", () => {
     await createAccountPageAction.login();
   });
 
-  test("tentative création de compte avec la même adresse mail.", async ({
+  test("Tentative création de compte avec la même adresse mail (ID: compte_004)", async ({
     homePageAction,
     createAccountPageAction,
   }) => {
@@ -32,7 +34,10 @@ test.describe("Tests sur un compte", () => {
     await createAccountPageAction.alertReuseEmail();
   });
 
-  test("déconnexion.", async ({ homePageAction, createAccountPageAction }) => {
+  test("Déconnexion (ID: compte_005)", async ({
+    homePageAction,
+    createAccountPageAction,
+  }) => {
     await homePageAction.goToHomePage();
     await homePageAction.accessLoginPage();
     await createAccountPageAction.login();

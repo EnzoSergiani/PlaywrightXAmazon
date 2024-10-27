@@ -1,8 +1,8 @@
 import { test } from "@fixtures/fixture";
 import { USER } from "@constants/generatedConst";
 
-test.describe("Livraisons", () => {
-  test("vérifier l'adresse de livraison", async ({
+test.describe("Tests sur la livraison", () => {
+  test("Vérifier l'adresse de livraison (ID: livraison_001)", async ({
     homePageAction,
     createAccountPageAction,
   }) => {
