@@ -1,5 +1,5 @@
 import { test } from "@fixtures/fixture";
-import { USER } from "./constants/generatedConst";
+import { USER } from "@constants/generatedConst";
 
 test.describe("Livraisons", () => {
   test("vérifier l'adresse de livraison", async ({
