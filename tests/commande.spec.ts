@@ -31,16 +31,17 @@ test.describe("Tests sur une commande", () => {
   test("Rechercher un produit dans le moteur de recherche puis l’acheter (ID: commande_003)", async ({
     homePageAction,
     productAction,
+    createAccountPageAction,
     checkoutPageAction,
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("laptop");
+    await productAction.searchProduct("nintendo switch");
     await productAction.selectFirstProduct();
     await productAction.addProductToCart();
     await checkoutPageAction.goToCartPage();
     await checkoutPageAction.orderCart();
-    await productAction.proceedToRetailCheckout();
+    await createAccountPageAction.login();
   });
   test("Vérification du panier (ID: commande_004)", async ({
     homePageAction,
@@ -49,7 +50,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("souris");
+    await productAction.searchProduct("sac a dos");
     await productAction.selectFirstProduct();
     await productAction.setQuantityTo(2);
     await productAction.addProductToCart();
