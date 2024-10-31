@@ -56,6 +56,14 @@ npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulie
 - accéder à une section et une sous-section spécifique,
 - rechercher un produit puis filtrer avec une marque.
 
+## Fichiers Gherkin
+
+Les tests sont également disponibles sous forme de fichiers Gherkin dans le répertoire [features](./tests/features/).
+
+## POMs et Fixtures
+
+Le projet utilise des modèles de page (POMs) et des fixtures pour organiser et réutiliser le code de test. Ces fichiers se trouvent dans les répertoires [poms](./tests/poms/) et [fixtures](./tests/fixtures/fixture.ts).
+
 ## Auteurs
 
 - Thibaut LEMICHEL
