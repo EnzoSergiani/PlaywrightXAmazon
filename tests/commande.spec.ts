@@ -23,7 +23,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("switch");
+    await productAction.searchProduct("badge");
     await productAction.selectFirstProduct();
     await productAction.buyProduct();
     await createAccountPageAction.login();
