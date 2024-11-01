@@ -43,4 +43,9 @@ export class CategoryPageAction {
   async sortByPriceAsc() {
     await this.page.locator('#s-result-sort-select').selectOption({ value: "price-asc-rank" });
   }
+
+  // Cette méthode est utilisée pour filtrer les résultats par ordre decroissant
+  async sortByPriceDesc() {
+    await this.page.locator('#s-result-sort-select').selectOption({ value: "price-desc-rank" });
+  }
 }
