@@ -48,4 +48,9 @@ export class CategoryPageAction {
   async sortByPriceDesc() {
     await this.page.locator('#s-result-sort-select').selectOption({ value: "price-desc-rank" });
   }
+
+  // Cette méthode est utilisée pour filtrer les résultats par note des clients
+  async sortByRate() {
+    await this.page.locator('#s-result-sort-select').selectOption({ value: "review-rank" });
+  }
 }

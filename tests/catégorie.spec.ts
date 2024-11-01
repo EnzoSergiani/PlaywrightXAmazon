@@ -61,4 +61,25 @@ test.describe("Tests sur une catégorie", () => {
       throw new Error("Le premier produit n'est pas le plus cher.");
     }
   })
+
+  test("Trier par les commentaires clients (ID: produit_005)", async ({
+    homePageAction,
+    productAction,
+    checkoutPageAction,
+    categoryPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
+    await homePageAction.dislikeCookies();
+    await productAction.searchProduct("Poubelle");
+    await new Promise((r) => setTimeout(r, 2000));
+    await categoryPageAction.sortByPriceDesc();
+    await new Promise((r) => setTimeout(r, 2000));
+    await categoryPageAction.sortByRate();
+
+    const allProductRatings = await productAction.getAllProductRatings();
+    if(await !checkoutPageAction.checkPricesAreDescending(allProductRatings)) {
+      throw new Error("Les produits ne sont pas triés par note des clients.");
+    }
+  })
+
 });

@@ -106,4 +106,28 @@ export class ProductAction {
 
     return prices;
 }
+
+async getAllProductRatings() {
+  // Attendre visibilité
+  await this.page.waitForSelector('.a-row.a-size-small span[aria-label]');
+
+  // Récupérer tous les éléments de note
+  const ratingElements = await this.page.locator('.a-row.a-size-small span[aria-label]');
+  
+  const ratings = [];
+  const count = await ratingElements.count();
+
+  for (let i = 0; i < count; i++) {
+    if(i%2 === 0) {
+      const ratingText = await ratingElements.nth(i).getAttribute('aria-label');
+      if(ratingText === null) continue;
+      const ratingValue = parseFloat(ratingText.split(' ')[0].replace(',', '.')); // Convertir la note en nombre
+      ratings.push(ratingValue); // Ajouter la note au tableau
+    }
+  }
+  return ratings;
+}
+
+
+
 }
