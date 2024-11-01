@@ -82,5 +82,4 @@ export class CheckoutPageAction {
     const messageLocator = this.page.locator('#sc-empty-cart .sc-your-amazon-cart-is-empty');
     return await messageLocator.textContent();
   }
-
 }

@@ -1,3 +1,4 @@
+import { th } from "@faker-js/faker/.";
 import { Locator, Page } from "@playwright/test";
 
 export class ProductAction {
@@ -79,4 +80,30 @@ export class ProductAction {
       .trim();
     return parseFloat(price);
   }
+
+  // Cette méthode est utilisée pour retourner un tableau de tous les prix des produits
+  async getAllProductPrices() {
+    await this.page.waitForSelector('.a-price', { timeout: 5000 });
+    console.log("Le conteneur des prix est visible.");
+    // Récupère tous les éléments de prix
+    const priceElements = await this.page.locator('.a-price .a-offscreen');
+    
+    // Utilise une boucle pour extraire le texte de chaque prix et les stocker dans un tableau
+    const prices = [];
+
+    // Vérification du nombre d'éléments de prix trouvés
+    const count = await priceElements.count();
+    console.log(`Nombre d'éléments de prix trouvés :`, count);
+
+    for (let i = 0; i < count; i++) {
+        const priceText = await priceElements.nth(i).textContent();
+        // Convertir le texte en nombre flottant et l'ajouter au tableau
+        if(priceText !== null) {
+          const priceValue = parseFloat(priceText.replace('€', '').replace(',', '.').trim());
+          prices.push(priceValue);
+        }
+    }
+
+    return prices;
+}
 }

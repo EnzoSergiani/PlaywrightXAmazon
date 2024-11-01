@@ -38,4 +38,9 @@ export class CategoryPageAction {
   async filterBrand(brand: string) {
     await this.buttonBrands(brand).click({ force: true });
   }
+
+  // Cette méthode est utilisée pour filtrer les résultats par ordre croissant
+  async sortByPriceAsc() {
+    await this.page.locator('#s-result-sort-select').selectOption({ value: "price-asc-rank" });
+  }
 }

@@ -67,7 +67,7 @@ test.describe("Tests sur une commande", () => {
     await productAction.selectFirstProduct();
     const quantity = 2;
     await productAction.setQuantityTo(quantity);
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 2000));
     const unitPrice = await productAction.getPrice();
     const expectedTotalPrice = unitPrice * quantity;
     await productAction.addProductToCart();
