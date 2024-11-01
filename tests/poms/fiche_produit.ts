@@ -24,7 +24,7 @@ export class ProductAction {
     this.buttonProceedToRetailCheckout = page.locator(
       'input[name="proceedToRetailCheckout"]'
     );
-    this.divQuantity = page.locator("#a-autoid-0-announce");
+    this.divQuantity = page.locator("#selectQuantity");
   }
 
   // Cette méthode est utilisée pour rechercher un produit dans la barre de recherche

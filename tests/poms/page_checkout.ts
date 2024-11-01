@@ -76,4 +76,11 @@ export class CheckoutPageAction {
       );
     }
   }
+
+  // Cette méthode est utilisée pour obtenir le message du panier vide
+  async getEmptyCartMessage() {
+    const messageLocator = this.page.locator('#sc-empty-cart .sc-your-amazon-cart-is-empty');
+    return await messageLocator.textContent();
+  }
+
 }

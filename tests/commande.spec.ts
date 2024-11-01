@@ -1,4 +1,4 @@
-import { test } from "@fixtures/fixture";
+import { test, expect } from "@fixtures/fixture";
 
 test.describe("Tests sur une commande", () => {
   test("Acheter les produits fréquemment achetés ensemble (ID: commande_001)", async ({
@@ -9,7 +9,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("laptop");
+    await productAction.searchProduct("switch");
     await productAction.selectFirstProduct();
     await productAction.addFrequentProductToCart();
     await checkoutPageAction.goToCartPage();
@@ -23,7 +23,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("laptop");
+    await productAction.searchProduct("switch");
     await productAction.selectFirstProduct();
     await productAction.buyProduct();
     await createAccountPageAction.login();
@@ -106,5 +106,36 @@ test.describe("Tests sur une commande", () => {
     await checkoutPageAction.goToCartPage();
     await new Promise((r) => setTimeout(r, 2000));
     await checkoutPageAction.checkQuantity(1);
+  });
+  test("Supprimer un produit du panier (ID: commande_008)", async ({
+    homePageAction,
+    productAction,
+    checkoutPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
+    await homePageAction.dislikeCookies();
+    await productAction.searchProduct("Disque dur");
+    await productAction.selectFirstProduct();
+    await productAction.addProductToCart();
+    await checkoutPageAction.goToCartPage();
+    await checkoutPageAction.deleteProductInCart();
+    await new Promise((r) => setTimeout(r, 2000));
+    const emptyCartMessage = await checkoutPageAction.getEmptyCartMessage();
+    expect(emptyCartMessage?.trim()).toBe("Votre panier Amazon est vide");
+  });
+  test("Supprimer un produit du panier > actualisation du panier (ID: commande_008)", async ({
+    homePageAction,
+    productAction,
+    checkoutPageAction,
+  }) => {
+    await homePageAction.goToHomePage();
+    await homePageAction.dislikeCookies();
+    await productAction.searchProduct("Disque dur");
+    await productAction.selectFirstProduct();
+    await productAction.addProductToCart();
+    await checkoutPageAction.goToCartPage();
+    await checkoutPageAction.deleteProductInCart();
+    await new Promise((r) => setTimeout(r, 2000));
+    await checkoutPageAction.checkQuantity(0);
   });
 });
