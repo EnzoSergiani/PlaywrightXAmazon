@@ -9,7 +9,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("switch");
+    await productAction.searchProduct("disque dur");
     await productAction.selectFirstProduct();
     await productAction.addFrequentProductToCart();
     await checkoutPageAction.goToCartPage();
@@ -50,7 +50,7 @@ test.describe("Tests sur une commande", () => {
   }) => {
     await homePageAction.goToHomePage();
     await homePageAction.dislikeCookies();
-    await productAction.searchProduct("sac a dos");
+    await productAction.searchProduct("disque dur");
     await productAction.selectFirstProduct();
     await productAction.setQuantityTo(2);
     await productAction.addProductToCart();
@@ -67,6 +67,7 @@ test.describe("Tests sur une commande", () => {
     await productAction.selectFirstProduct();
     const quantity = 2;
     await productAction.setQuantityTo(quantity);
+    await new Promise((r) => setTimeout(r, 1000));
     const unitPrice = await productAction.getPrice();
     const expectedTotalPrice = unitPrice * quantity;
     await productAction.addProductToCart();

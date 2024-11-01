@@ -24,7 +24,7 @@ export class ProductAction {
     this.buttonProceedToRetailCheckout = page.locator(
       'input[name="proceedToRetailCheckout"]'
     );
-    this.divQuantity = page.locator("#selectQuantity");
+    this.divQuantity = page.locator("#quantityRelocate_feature_div");
   }
 
   // Cette méthode est utilisée pour rechercher un produit dans la barre de recherche
@@ -61,6 +61,7 @@ export class ProductAction {
   // Cette méthode est utilisée pour définir la quantité d'un produit
   async setQuantityTo(quantity: number) {
     await this.divQuantity.click();
+    //await this.page.waitForSelector(`#quantity_${quantity -1}"]`);
     await this.page.locator(`#quantity_${quantity - 1}`).click();
   }
 
