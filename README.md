@@ -23,38 +23,42 @@ npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulie
 
 ## Tests
 
+`catégorie` : Tests sur une catégorie
+
+- accéder à une section et une sous-section spécifique,
+- rechercher un produit puis filtrer avec une marque,
+- trier les produits par prix croissant,
+- trier les produits par prix décroissant,
+- trier les produits par les commentaires clients.
+
+`commande` : Tests sur une commande
+
+- acheter les produits fréquemment achetés ensemble,
+- passer une commande avec un login pendant le checkout,
+- rechercher un produit dans le moteur de recherche puis l’acheter,
+- vérification du panier,
+- vérification du prix total du panier,
+- mettre un article de côté,
+- remettre un article de côté,
+- supprimer un produit du panier,
+- supprimer un produit du panier > actualisation du panier.
+
 `compte` : Tests sur un compte
 
-- accès à la page principale
+- accès à la page principale,
 - création d'un compte,
 - connexion à un compte,
 - tentative création de compte avec la même adresse mail,
 - déconnexion.
 
-`produit` : Tests sur un produit
-
-- rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer,
-- acheter les produits fréquemment achetés ensemble.
-
-`commande` : Tests sur une commande
-
-- passer une commande avec un login pendant le checkout,
-- rechercher un produit dans le moteur de recherche puis l’acheter,
-- passer une commande avec un register pendant le checkout,
-- rechercher un produit dans le moteur de recherche puis l’acheter,
-- vérification du panier,
-- vérification du prix total du panier,
-- mettre un article de côté,
-- remettre un article de côté.
-
 `livraison` : Test sur la livraison
 
 - vérifier l'adresse de livraison.
 
-`catégorie` : Tests sur une catégorie
+`produit` : Tests sur un produit
 
-- accéder à une section et une sous-section spécifique,
-- rechercher un produit puis filtrer avec une marque.
+- rechercher un produit, le mettre dans le panier, voir le panier puis le supprimer,
+- acheter les produits fréquemment achetés ensemble.
 
 ## Fichiers Gherkin
 
