@@ -124,7 +124,7 @@ test.describe("Tests sur une commande", () => {
     const emptyCartMessage = await checkoutPageAction.getEmptyCartMessage();
     expect(emptyCartMessage?.trim()).toBe("Votre panier Amazon est vide");
   });
-  test("Supprimer un produit du panier > actualisation du panier (ID: commande_008)", async ({
+  test("Supprimer un produit du panier > actualisation du panier (ID: commande_009)", async ({
     homePageAction,
     productAction,
     checkoutPageAction,
