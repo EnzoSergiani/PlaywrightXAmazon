@@ -90,7 +90,7 @@ test.describe("Tests sur une commande", () => {
     await new Promise((r) => setTimeout(r, 2000));
     await checkoutPageAction.checkQuantity(0);
   });
-  test("Remettre l'article dans le panier (ID: commande_007)", async ({
+  test("Remettre un article dans le panier (ID: commande_007)", async ({
     homePageAction,
     productAction,
     checkoutPageAction,

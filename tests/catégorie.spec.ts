@@ -1,8 +1,7 @@
-import { th } from "@faker-js/faker/.";
 import { test } from "@fixtures/fixture";
 
 test.describe("Tests sur une catégorie", () => {
-  test("accéder à un section et sous-section spécifique (ID: catégorie_001)", async ({
+  test("Accéder à un section et sous-section spécifique (ID: catégorie_001)", async ({
     homePageAction,
     categoryPageAction,
   }) => {
@@ -13,7 +12,7 @@ test.describe("Tests sur une catégorie", () => {
     await categoryPageAction.selectSubSection("Objets connectés");
   });
 
-  test("rechercher un produit puis filtrer avec une marque (ID: catégorie_002)", async ({
+  test("Rechercher un produit puis filtrer avec une marque (ID: catégorie_002)", async ({
     homePageAction,
     productAction,
     categoryPageAction,
