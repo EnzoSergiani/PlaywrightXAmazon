@@ -1,4 +1,5 @@
 import { test } from "@fixtures/fixture";
+import { expect } from "@playwright/test";
 
 test.describe("Tests sur une catégorie", () => {
   test("Accéder à un section et sous-section spécifique (ID: catégorie_001)", async ({
@@ -10,6 +11,11 @@ test.describe("Tests sur une catégorie", () => {
     await categoryPageAction.openMenu();
     await categoryPageAction.selectSection("High-Tech");
     await categoryPageAction.selectSubSection("Objets connectés");
+
+    await new Promise((r) => setTimeout(r, 2000));
+    const dropdownCategory =
+      await categoryPageAction.dopdownCategory.textContent();
+    expect(dropdownCategory?.trim()).toBe("High-Tech");
   });
 
   test("Rechercher un produit puis filtrer avec une marque (ID: catégorie_002)", async ({
@@ -37,10 +43,10 @@ test.describe("Tests sur une catégorie", () => {
 
     // Comparaison des prix des deux premiers produits
     const allPrices = await productAction.getAllProductPrices();
-    if(allPrices[1] < allPrices[0]) {
+    if (allPrices[1] < allPrices[0]) {
       throw new Error("Le premier produit n'est pas le moins cher.");
-    } 
-  })
+    }
+  });
 
   test("Trier les produits par prix décroissant (ID: produit_004)", async ({
     homePageAction,
@@ -56,10 +62,10 @@ test.describe("Tests sur une catégorie", () => {
 
     // Comparaison des prix des deux premiers produits
     const allPrices = await productAction.getAllProductPrices();
-    if(allPrices[1] > allPrices[0]) {
+    if (allPrices[1] > allPrices[0]) {
       throw new Error("Le premier produit n'est pas le plus cher.");
     }
-  })
+  });
 
   test("Trier par les commentaires clients (ID: produit_005)", async ({
     homePageAction,
@@ -76,9 +82,8 @@ test.describe("Tests sur une catégorie", () => {
     await categoryPageAction.sortByRate();
 
     const allProductRatings = await productAction.getAllProductRatings();
-    if(await !checkoutPageAction.checkPricesAreDescending(allProductRatings)) {
+    if (await !checkoutPageAction.checkPricesAreDescending(allProductRatings)) {
       throw new Error("Les produits ne sont pas triés par note des clients.");
     }
-  })
-
+  });
 });
