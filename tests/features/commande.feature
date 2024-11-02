@@ -72,3 +72,23 @@ Fonctionnalité: Gestion des commandes
     Et que l'utilisateur remet le produit de côté dans le panier
     Et que l'utilisateur va à la page du panier
     Alors la quantité dans le panier devrait être de 1
+
+  Scénario: Supprimer un produit du panier (ID: commande_008)
+    Étant donné que l'utilisateur est sur la page d'accueil
+    Et que l'utilisateur refuse les cookies
+    Quand l'utilisateur recherche un produit "Disque dur"
+    Et que l'utilisateur sélectionne le premier produit
+    Et que l'utilisateur ajoute le produit au panier
+    Et que l'utilisateur va à la page du panier
+    Et que l'utilisateur supprime le produit du panier
+    Alors le message "Votre panier Amazon est vide" devrait être affiché
+
+  Scénario: Supprimer un produit du panier > actualisation du panier (ID: commande_009)
+    Étant donné que l'utilisateur est sur la page d'accueil
+    Et que l'utilisateur refuse les cookies
+    Quand l'utilisateur recherche un produit "Disque dur"
+    Et que l'utilisateur sélectionne le premier produit
+    Et que l'utilisateur ajoute le produit au panier
+    Et que l'utilisateur va à la page du panier
+    Et que l'utilisateur supprime le produit du panier
+    Alors la quantité dans le panier devrait être de 0

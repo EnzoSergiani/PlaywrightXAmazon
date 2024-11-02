@@ -14,3 +14,25 @@ Fonctionnalité: Gestion des catégories
     Quand l'utilisateur recherche un produit "souris"
     Et que l'utilisateur filtre par la marque "Logitech"
     Alors les résultats de recherche devraient être filtrés par la marque "Logitech"
+
+  Scénario: Trier les produits par prix croissant (ID: produit_003)
+    Étant donné que l'utilisateur est sur la page d'accueil
+    Et que l'utilisateur refuse les cookies
+    Quand l'utilisateur recherche un produit "Lego"
+    Et que l'utilisateur trie les produits par prix croissant
+    Alors le premier produit devrait être le moins cher
+
+  Scénario: Trier les produits par prix décroissant (ID: produit_004)
+    Étant donné que l'utilisateur est sur la page d'accueil
+    Et que l'utilisateur refuse les cookies
+    Quand l'utilisateur recherche un produit "Lego"
+    Et que l'utilisateur trie les produits par prix décroissant
+    Alors le premier produit devrait être le plus cher
+
+  Scénario: Trier par les commentaires clients (ID: produit_005)
+    Étant donné que l'utilisateur est sur la page d'accueil
+    Et que l'utilisateur refuse les cookies
+    Quand l'utilisateur recherche un produit "Poubelle"
+    Et que l'utilisateur trie les produits par prix décroissant
+    Et que l'utilisateur trie les produits par note des clients
+    Alors les produits devraient être triés par note des clients
