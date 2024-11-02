@@ -42,7 +42,7 @@ test.describe("Tests sur une catégorie", () => {
     } 
   })
 
-  test("Trier les produits par prix decroissant (ID: produit_004)", async ({
+  test("Trier les produits par prix décroissant (ID: produit_004)", async ({
     homePageAction,
     productAction,
     checkoutPageAction,
