@@ -17,8 +17,10 @@ npm install
 Pour lancer les tests Playwright, utilisez les commandes suivantes :
 
 ```sh
-npx playwright test                # executer tous les tests
-npx playwright test <NOM_DU_TEST>  # executer un ensemble de tests en particulier
+npm run test <NOM_DU_TEST>           # executer un ensemble de tests en particulier
+npm run test-chromium-<NOM_DU_TEST>  # executer un ensemble de tests en particulier sous chromium
+npm run test-firefox-<NOM_DU_TEST>   # executer un ensemble de tests en particulier sous firefox
+npm run show-result                  # affiche le résultat des précédents tests
 ```
 
 ## Tests
